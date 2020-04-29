@@ -3,3 +3,5 @@
 /apps/__pycache__
 /.vscode
 /imgui_datascience
+/test.png
+/*.osm

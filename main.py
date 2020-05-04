@@ -16,7 +16,7 @@ def main():
     window = core.impl_glfw_init()
     impl = GlfwRenderer(window)
     imgui.core.style_colors_light()
-    
+
     app_list = list(get_app_list())
     # figure = plt.figure()
     # img = Image.open('./test.png')
@@ -41,7 +41,7 @@ def main():
 
                 imgui.end_menu()
             imgui.end_main_menu_bar()
-            
+
         desktop.render()
 
     while not glfw.window_should_close(window):

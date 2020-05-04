@@ -1,10 +1,8 @@
 from collections import Counter, OrderedDict
-import wrapt
 
 import glfw
 import OpenGL.GL as gl
 import operator
-import pyglet
 import imgui
 import collections
 import blinker
@@ -56,39 +54,39 @@ class Desktop:
         self.to_remove.add(item)
 
 
-class Widget:
-    def __init__(self):
-        pass
+# class Widget:
+#     def __init__(self):
+#         pass
 
-    @property
-    def tickrate(self): return getattr(self, "_tickrate", None)
+#     @property
+#     def tickrate(self): return getattr(self, "_tickrate", None)
 
-    @tickrate.setter
-    def tickrate(self, tickrate):
-        # ToDo, this holds a reference to closed windows
-        self._tickrate = tickrate
-        pyglet.clock.unschedule(self.update)
-        if tickrate is None:
-            return
-        if type(tickrate) == bool and tickrate:
-            pyglet.clock.schedule_interval(self.update)
-            return
-        pyglet.clock.schedule_interval(self.update, tickrate)
+#     @tickrate.setter
+#     def tickrate(self, tickrate):
+#         # ToDo, this holds a reference to closed windows
+#         self._tickrate = tickrate
+#         pyglet.clock.unschedule(self.update)
+#         if tickrate is None:
+#             return
+#         if type(tickrate) == bool and tickrate:
+#             pyglet.clock.schedule_interval(self.update)
+#             return
+#         pyglet.clock.schedule_interval(self.update, tickrate)
 
-    def _render(self, *args):
-        return self.render(args)
+#     def _render(self, *args):
+#         return self.render(args)
 
-    def render(self):
-        pass
+#     def render(self):
+#         pass
 
-    def update(self, dt):
-        pass
+#     def update(self, dt):
+#         pass
 
 
 windowCount = collections.Counter()
 
 
-class Window(Widget):
+class Window():
     # Set to false if you want the app not to show up in app the "start menu".
     inAppMenu = True
 
@@ -156,6 +154,6 @@ class OrderedAlertCounter(Counter, OrderedDict):
 alerts = OrderedAlertCounter()
 
 
-class GenericPythonWidget(Widget, wrapt.ObjectProxy):
-    def render(self):
-        imgui.text(str(self))
+# class GenericPythonWidget(Widget, wrapt.ObjectProxy):
+#     def render(self):
+#         imgui.text(str(self))

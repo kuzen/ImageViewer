@@ -42,13 +42,14 @@ def export_map(G, node_color='#66ccff', node_size=15,
 
 
 def drawMap(linesc, east, north,
-            xbias=1800, ybias=300, scale=0.5,
+            xbias=1300, ybias=100, scale=0.5,
             edge_color='#ff0000', edge_linewidth=1, edge_alpha=1):
     draw_list = imgui.get_window_draw_list()
+    pos = imgui.core.get_window_position()
     for p in linesc:
         points = ((p-[east, north])*[1, -1] /
                   [1.141255544679108e-5, 8.993216192195822e-6] +
-                  [xbias, ybias])*scale
+                  [xbias, ybias])*scale + [pos[0], pos[1]]
         if(len(points) > 2):
             draw_list.add_polyline(list(points),
                                    imgui.get_color_u32_rgba(

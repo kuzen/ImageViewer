@@ -1,10 +1,10 @@
-from core import Window, alerts, Widget
+from core import Window, alerts
 import imgui
 from utils import singleton
 
 
 @singleton
-class ExceptionAlert(Widget):
+class ExceptionAlert():
     def __init__(self, exception, traceinfo):
         self.exception = exception
         self.traceinfo = traceinfo

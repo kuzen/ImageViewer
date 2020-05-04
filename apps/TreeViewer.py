@@ -11,15 +11,6 @@ class TreeViewer(Window):
         # self.updateG()
         super(TreeViewer, self).__init__()
 
-    def setPath(self, path='./'):
-        self.path = path
-
-    def updateG(self):
-        pass
-
-    def getPath(self):
-        return self.path
-
     def render(self, *args):
         imgui.columns(2, 'fileLlist')
         imgui.separator()

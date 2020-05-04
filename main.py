@@ -8,15 +8,16 @@ import core
 import OpenGL.GL as gl
 from core import Desktop
 from plugins import get_app_list
-app_list = list(get_app_list())
-desktop = Desktop()
 
 
 def main():
+    desktop = Desktop()
     imgui.create_context()
     window = core.impl_glfw_init()
     impl = GlfwRenderer(window)
     imgui.core.style_colors_light()
+    
+    app_list = list(get_app_list())
     # figure = plt.figure()
     # img = Image.open('./test.png')
     # texture, width, height = readImage(img)
